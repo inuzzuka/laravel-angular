@@ -1,0 +1,9 @@
+<form (ngSubmit)="editTodo()">
+  <input
+    type="text"
+    name="todo"
+    [(ngModel)]="todo.description"
+    autocomplete="off"
+  />
+  <button class="buttons">Update</button>
+</form>

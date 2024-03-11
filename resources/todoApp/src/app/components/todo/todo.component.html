@@ -1,0 +1,27 @@
+<head>
+  <style>
+    .todo-task {
+      display: flex;
+      margin: 10px;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<div class="add-todo">
+  <p>Add new todo:</p>
+  <form (ngSubmit)="addTodo()">
+    <input
+      type="text"
+      name="todo"
+      [(ngModel)]="todo.description"
+      autocomplete="off"
+    />
+    <button class="buttons">Add</button>
+  </form>
+</div>
+<div *ngFor="let todo of todos" class="todo-task">
+  <input type="checkbox" class="checkbox" (click)="deleteTodo(todo.id)" />
+  <div>{{ todo.description }}</div>
+  <button routerLink="edit/{{ todo.id }}">Edit</button>
+</div>

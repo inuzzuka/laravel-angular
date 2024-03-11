@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('todos', [TodoController::class, 'getTodos']);
+
+Route::get('todo/{id}', [TodoController::class, 'getTodoId']);
+
+Route::post('addTodo', [TodoController::class, 'addTodo']);
+
+Route::delete('deleteTodo/{id}', [TodoController::class, 'deleteTodo']);
+
+Route::put('editTodo/{id}', [TodoController::class, 'editTodo']);
